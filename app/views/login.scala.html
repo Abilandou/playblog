@@ -1,0 +1,50 @@
+@(loginForm : Form[Auth])
+@import helper._
+
+<link rel="stylesheet" media="screen" href="@routes.Assets.versioned("materialize/css/materialize.min.css")">
+<link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">
+<script src="@routes.Assets.versioned("materialize/js/materialize.min.js")" crossorigin="anonymous"></script>
+<script src="@routes.Assets.versioned("javascripts/jquery-3.4.1.min.js")" crossorigin="anonymous"></script>
+<script src="@routes.Assets.versioned("javascripts/adminMain.js")" crossorigin="anonymous"></script>
+
+
+
+@main("Admin Login"){
+	<div class="container">
+		<div class="row" >
+			<div class="col s2">
+			</div>
+			<div class="col s8">
+				<div class="card" >
+					<div class="card-panel teal">
+						<h5 class="white-text center bold">ADMIN LOGIN</h5>
+					</div>
+					<div>@flash.get("error")</div>
+					@helper.form(action = routes.AuthController.auth()){
+						@helper.CSRF.formField
+
+						<div class="card-content" >
+							<div class="input-field">
+								@helper.inputText(loginForm("email"))
+							</div><br><br>
+
+							<div class="input-field">
+								@helper.inputPassword(loginForm("password"))
+							</div><br><br>
+							<div>
+								<button style="margin-bottom: 10px;" type="submit" class="btn blue right">Login</button>
+							</div>
+						</div>
+
+					}
+					<div><a  href="/">BACK TO HOME</a></div>
+				</div>
+			</div>
+			<div class="col s2">
+			</div>
+		</div>
+	</div>
+}
+
+
+	

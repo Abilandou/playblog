@@ -1,0 +1,234 @@
+2020-02-04 22:38:38,795 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-3 - Database [default] initialized at jdbc:mysql://localhost/play
+2020-02-04 22:38:38,876 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-3 - Creating Pool for datasource 'default'
+2020-02-04 22:38:41,547 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-3 - ApplicationTimer demo: Starting application at 2020-02-04T21:38:41.546722Z
+2020-02-04 22:38:42,511 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-3 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.csrf.CSRFFilter
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+    filters.ExampleFilter
+
+2020-02-04 22:38:42,557 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-3 - Application started (Dev) (no global state)
+2020-02-04 22:40:53,879 [ERROR] from application in application-akka.actor.default-dispatcher-8 - 
+
+! @7elapakok - Internal server error, for (POST) [/login-user] ->
+ 
+play.api.http.HttpErrorHandlerExceptions$$anon$1: Execution exception[[CompletionException: javax.persistence.PersistenceException: Query threw SQLException:Unknown column 't0.admin' in 'field list' Bind values:[] Query was:select t0.id, t0.admin, t0.name, t0.email, t0.password from user t0 where t0.email like binary ? escape ''  and t0.password like binary ? escape ''  order by t0.id, t0.id desc]]
+	at play.api.http.HttpErrorHandlerExceptions$.throwableToUsefulException(HttpErrorHandler.scala:351)
+	at play.api.http.DefaultHttpErrorHandler.onServerError(HttpErrorHandler.scala:267)
+	at play.core.server.AkkaHttpServer$$anonfun$1.applyOrElse(AkkaHttpServer.scala:448)
+	at play.core.server.AkkaHttpServer$$anonfun$1.applyOrElse(AkkaHttpServer.scala:446)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:453)
+	at akka.dispatch.BatchingExecutor$AbstractBatch.processBatch(BatchingExecutor.scala:55)
+	at akka.dispatch.BatchingExecutor$BlockableBatch.$anonfun$run$1(BatchingExecutor.scala:92)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)
+	at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:94)
+	at akka.dispatch.BatchingExecutor$BlockableBatch.run(BatchingExecutor.scala:92)
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:41)
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(ForkJoinExecutorConfigurator.scala:49)
+	at akka.dispatch.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)
+	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
+	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
+	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
+Caused by: java.util.concurrent.CompletionException: javax.persistence.PersistenceException: Query threw SQLException:Unknown column 't0.admin' in 'field list' Bind values:[] Query was:select t0.id, t0.admin, t0.name, t0.email, t0.password from user t0 where t0.email like binary ? escape ''  and t0.password like binary ? escape ''  order by t0.id, t0.id desc
+	at java.base/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:331)
+	at java.base/java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:346)
+	at java.base/java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:632)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:506)
+	at java.base/java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:2088)
+	at scala.concurrent.java8.FuturesConvertersImpl$CF.apply(FutureConvertersImpl.scala:28)
+	at scala.concurrent.java8.FuturesConvertersImpl$CF.apply(FutureConvertersImpl.scala:25)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:447)
+	at scala.concurrent.ExecutionContext$parasitic$.execute(ExecutionContext.scala:164)
+	at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:392)
+	at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:302)
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete0(Promise.scala:249)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:467)
+	at play.api.libs.streams.Execution$trampoline$.execute(Execution.scala:72)
+	at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:392)
+	at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:302)
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete0(Promise.scala:249)
+	at scala.concurrent.impl.Promise$DefaultPromise.linkRootOf(Promise.scala:311)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:434)
+	... 11 common frames omitted
+Caused by: javax.persistence.PersistenceException: Query threw SQLException:Unknown column 't0.admin' in 'field list' Bind values:[] Query was:select t0.id, t0.admin, t0.name, t0.email, t0.password from user t0 where t0.email like binary ? escape ''  and t0.password like binary ? escape ''  order by t0.id, t0.id desc
+	at io.ebean.config.dbplatform.SqlCodeTranslator.translate(SqlCodeTranslator.java:52)
+	at io.ebean.config.dbplatform.DatabasePlatform.translate(DatabasePlatform.java:219)
+	at io.ebeaninternal.server.query.CQueryEngine.translate(CQueryEngine.java:149)
+	at io.ebeaninternal.server.query.DefaultOrmQueryEngine.translate(DefaultOrmQueryEngine.java:43)
+	at io.ebeaninternal.server.core.OrmQueryRequest.translate(OrmQueryRequest.java:102)
+	at io.ebeaninternal.server.query.CQuery.createPersistenceException(CQuery.java:702)
+	at io.ebeaninternal.server.query.CQueryEngine.findMany(CQueryEngine.java:411)
+	at io.ebeaninternal.server.query.DefaultOrmQueryEngine.findMany(DefaultOrmQueryEngine.java:133)
+	at io.ebeaninternal.server.core.OrmQueryRequest.findList(OrmQueryRequest.java:459)
+	at io.ebeaninternal.server.core.DefaultServer.findList(DefaultServer.java:1596)
+	at io.ebeaninternal.server.core.DefaultServer.findList(DefaultServer.java:1574)
+	at io.ebeaninternal.server.querydefn.DefaultOrmQuery.findList(DefaultOrmQuery.java:1481)
+	at controllers.AuthController.auth(AuthController.java:40)
+	at router.Routes$$anonfun$routes$1.$anonfun$applyOrElse$31(Routes.scala:482)
+	at play.core.routing.HandlerInvokerFactory$$anon$6.resultCall(HandlerInvoker.scala:143)
+	at play.core.routing.HandlerInvokerFactory$$anon$6.resultCall(HandlerInvoker.scala:142)
+	at play.core.routing.HandlerInvokerFactory$JavaActionInvokerFactory$$anon$3$$anon$4$$anon$5.invocation(HandlerInvoker.scala:116)
+	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:131)
+	at play.mvc.Action.lambda$call$0(Action.java:89)
+	at java.base/java.util.Optional.map(Optional.java:265)
+	at play.mvc.Action.call(Action.java:81)
+	at play.http.DefaultActionCreator$1.call(DefaultActionCreator.java:33)
+	at play.core.j.JavaAction.$anonfun$apply$8(JavaAction.scala:191)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:660)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:430)
+	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:79)
+	at play.api.libs.streams.Execution$trampoline$.execute(Execution.scala:72)
+	at play.core.j.HttpExecutionContext.execute(HttpExecutionContext.scala:71)
+	at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:392)
+	at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:302)
+	at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:276)
+	at scala.concurrent.impl.Promise$DefaultPromise.map(Promise.scala:146)
+	at scala.concurrent.Future$.apply(Future.scala:660)
+	at play.core.j.JavaAction.apply(JavaAction.scala:192)
+	at play.api.mvc.Action.$anonfun$apply$2(Action.scala:98)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:433)
+	... 11 common frames omitted
+Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 't0.admin' in 'field list'
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+	at com.mysql.jdbc.Util.getInstance(Util.java:408)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:943)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3973)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3909)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2527)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2680)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2501)
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:1858)
+	at com.mysql.jdbc.PreparedStatement.executeQuery(PreparedStatement.java:1966)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java)
+	at io.ebeaninternal.server.query.CQuery.prepareResultSet(CQuery.java:376)
+	at io.ebeaninternal.server.query.CQuery.prepareBindExecuteQueryWithOption(CQuery.java:324)
+	at io.ebeaninternal.server.query.CQuery.prepareBindExecuteQuery(CQuery.java:319)
+	at io.ebeaninternal.server.query.CQueryEngine.findMany(CQueryEngine.java:384)
+	... 40 common frames omitted
+2020-02-04 22:43:26,145 [ERROR] from application in application-akka.actor.default-dispatcher-7 - 
+
+! @7elapjc57 - Internal server error, for (POST) [/login-user] ->
+ 
+play.api.http.HttpErrorHandlerExceptions$$anon$1: Execution exception[[CompletionException: javax.persistence.PersistenceException: Query threw SQLException:Unknown column 't0.admin' in 'field list' Bind values:[] Query was:select t0.id, t0.admin, t0.name, t0.email, t0.password from user t0 where t0.email like binary ? escape ''  and t0.password like binary ? escape ''  order by t0.id, t0.id desc]]
+	at play.api.http.HttpErrorHandlerExceptions$.throwableToUsefulException(HttpErrorHandler.scala:351)
+	at play.api.http.DefaultHttpErrorHandler.onServerError(HttpErrorHandler.scala:267)
+	at play.core.server.AkkaHttpServer$$anonfun$1.applyOrElse(AkkaHttpServer.scala:448)
+	at play.core.server.AkkaHttpServer$$anonfun$1.applyOrElse(AkkaHttpServer.scala:446)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:453)
+	at akka.dispatch.BatchingExecutor$AbstractBatch.processBatch(BatchingExecutor.scala:55)
+	at akka.dispatch.BatchingExecutor$BlockableBatch.$anonfun$run$1(BatchingExecutor.scala:92)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)
+	at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:94)
+	at akka.dispatch.BatchingExecutor$BlockableBatch.run(BatchingExecutor.scala:92)
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:41)
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(ForkJoinExecutorConfigurator.scala:49)
+	at akka.dispatch.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)
+	at akka.dispatch.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
+	at akka.dispatch.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
+	at akka.dispatch.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
+Caused by: java.util.concurrent.CompletionException: javax.persistence.PersistenceException: Query threw SQLException:Unknown column 't0.admin' in 'field list' Bind values:[] Query was:select t0.id, t0.admin, t0.name, t0.email, t0.password from user t0 where t0.email like binary ? escape ''  and t0.password like binary ? escape ''  order by t0.id, t0.id desc
+	at java.base/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:331)
+	at java.base/java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:346)
+	at java.base/java.util.concurrent.CompletableFuture$UniApply.tryFire(CompletableFuture.java:632)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:506)
+	at java.base/java.util.concurrent.CompletableFuture.completeExceptionally(CompletableFuture.java:2088)
+	at scala.concurrent.java8.FuturesConvertersImpl$CF.apply(FutureConvertersImpl.scala:28)
+	at scala.concurrent.java8.FuturesConvertersImpl$CF.apply(FutureConvertersImpl.scala:25)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:447)
+	at scala.concurrent.ExecutionContext$parasitic$.execute(ExecutionContext.scala:164)
+	at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:392)
+	at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:302)
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete0(Promise.scala:249)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:467)
+	at play.api.libs.streams.Execution$trampoline$.execute(Execution.scala:72)
+	at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:392)
+	at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:302)
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete0(Promise.scala:249)
+	at scala.concurrent.impl.Promise$DefaultPromise.linkRootOf(Promise.scala:311)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:434)
+	... 11 common frames omitted
+Caused by: javax.persistence.PersistenceException: Query threw SQLException:Unknown column 't0.admin' in 'field list' Bind values:[] Query was:select t0.id, t0.admin, t0.name, t0.email, t0.password from user t0 where t0.email like binary ? escape ''  and t0.password like binary ? escape ''  order by t0.id, t0.id desc
+	at io.ebean.config.dbplatform.SqlCodeTranslator.translate(SqlCodeTranslator.java:52)
+	at io.ebean.config.dbplatform.DatabasePlatform.translate(DatabasePlatform.java:219)
+	at io.ebeaninternal.server.query.CQueryEngine.translate(CQueryEngine.java:149)
+	at io.ebeaninternal.server.query.DefaultOrmQueryEngine.translate(DefaultOrmQueryEngine.java:43)
+	at io.ebeaninternal.server.core.OrmQueryRequest.translate(OrmQueryRequest.java:102)
+	at io.ebeaninternal.server.query.CQuery.createPersistenceException(CQuery.java:702)
+	at io.ebeaninternal.server.query.CQueryEngine.findMany(CQueryEngine.java:411)
+	at io.ebeaninternal.server.query.DefaultOrmQueryEngine.findMany(DefaultOrmQueryEngine.java:133)
+	at io.ebeaninternal.server.core.OrmQueryRequest.findList(OrmQueryRequest.java:459)
+	at io.ebeaninternal.server.core.DefaultServer.findList(DefaultServer.java:1596)
+	at io.ebeaninternal.server.core.DefaultServer.findList(DefaultServer.java:1574)
+	at io.ebeaninternal.server.querydefn.DefaultOrmQuery.findList(DefaultOrmQuery.java:1481)
+	at controllers.AuthController.auth(AuthController.java:40)
+	at router.Routes$$anonfun$routes$1.$anonfun$applyOrElse$31(Routes.scala:482)
+	at play.core.routing.HandlerInvokerFactory$$anon$6.resultCall(HandlerInvoker.scala:143)
+	at play.core.routing.HandlerInvokerFactory$$anon$6.resultCall(HandlerInvoker.scala:142)
+	at play.core.routing.HandlerInvokerFactory$JavaActionInvokerFactory$$anon$3$$anon$4$$anon$5.invocation(HandlerInvoker.scala:116)
+	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:131)
+	at play.mvc.Action.lambda$call$0(Action.java:89)
+	at java.base/java.util.Optional.map(Optional.java:265)
+	at play.mvc.Action.call(Action.java:81)
+	at play.http.DefaultActionCreator$1.call(DefaultActionCreator.java:33)
+	at play.core.j.JavaAction.$anonfun$apply$8(JavaAction.scala:191)
+	at scala.concurrent.Future$.$anonfun$apply$1(Future.scala:660)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:430)
+	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:79)
+	at play.api.libs.streams.Execution$trampoline$.execute(Execution.scala:72)
+	at play.core.j.HttpExecutionContext.execute(HttpExecutionContext.scala:71)
+	at scala.concurrent.impl.Promise$Transformation.submitWithValue(Promise.scala:392)
+	at scala.concurrent.impl.Promise$DefaultPromise.submitWithValue(Promise.scala:302)
+	at scala.concurrent.impl.Promise$DefaultPromise.dispatchOrAddCallbacks(Promise.scala:276)
+	at scala.concurrent.impl.Promise$DefaultPromise.map(Promise.scala:146)
+	at scala.concurrent.Future$.apply(Future.scala:660)
+	at play.core.j.JavaAction.apply(JavaAction.scala:192)
+	at play.api.mvc.Action.$anonfun$apply$2(Action.scala:98)
+	at scala.concurrent.impl.Promise$Transformation.run(Promise.scala:433)
+	... 11 common frames omitted
+Caused by: com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 't0.admin' in 'field list'
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:425)
+	at com.mysql.jdbc.Util.getInstance(Util.java:408)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:943)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3973)
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3909)
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2527)
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2680)
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2501)
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:1858)
+	at com.mysql.jdbc.PreparedStatement.executeQuery(PreparedStatement.java:1966)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeQuery(ProxyPreparedStatement.java:52)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeQuery(HikariProxyPreparedStatement.java)
+	at io.ebeaninternal.server.query.CQuery.prepareResultSet(CQuery.java:376)
+	at io.ebeaninternal.server.query.CQuery.prepareBindExecuteQueryWithOption(CQuery.java:324)
+	at io.ebeaninternal.server.query.CQuery.prepareBindExecuteQuery(CQuery.java:319)
+	at io.ebeaninternal.server.query.CQueryEngine.findMany(CQueryEngine.java:384)
+	... 40 common frames omitted
+2020-02-04 22:46:39,674 [WARN] from play in application-akka.actor.default-dispatcher-14 - You are using status code '200' with flashing, which should only be used with a redirect status!
+2020-02-04 22:46:44,593 [WARN] from play in application-akka.actor.default-dispatcher-17 - You are using status code '200' with flashing, which should only be used with a redirect status!
+2020-02-05 05:59:29,387 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-1 housekeeper - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m18s984ms546µs226ns).
+2020-02-05 05:59:31,370 [INFO] from application in application-akka.actor.default-dispatcher-36 - ApplicationTimer demo: Stopping application at 2020-02-05T04:59:31.352250Z after 26450s.
+2020-02-05 05:59:31,382 [INFO] from application in application-akka.actor.default-dispatcher-36 - Shutting down connection pool.
+2020-02-05 05:59:34,013 [INFO] from play.api.db.DefaultDBApi in play-dev-mode-akka.actor.default-dispatcher-69 - Database [default] initialized at jdbc:mysql://localhost/play
+2020-02-05 05:59:34,014 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-69 - Creating Pool for datasource 'default'
+2020-02-05 05:59:34,726 [INFO] from application in play-dev-mode-akka.actor.default-dispatcher-69 - ApplicationTimer demo: Starting application at 2020-02-05T04:59:34.725876Z
+2020-02-05 05:59:35,037 [INFO] from play.api.http.EnabledFilters in play-dev-mode-akka.actor.default-dispatcher-69 - Enabled Filters (see <https://www.playframework.com/documentation/latest/Filters>):
+
+    play.filters.csrf.CSRFFilter
+    play.filters.headers.SecurityHeadersFilter
+    play.filters.hosts.AllowedHostsFilter
+    filters.ExampleFilter
+
+2020-02-05 05:59:35,069 [INFO] from play.api.Play in play-dev-mode-akka.actor.default-dispatcher-69 - Application started (Dev) (no global state)
+2020-02-05 07:01:56,533 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-2 housekeeper - HikariPool-2 - Thread starvation or clock leap detected (housekeeper delta=4m10s458ms796µs758ns).
+2020-02-05 07:02:01,433 [INFO] from play.core.server.AkkaHttpServer in play-dev-mode-shutdown-hook-1 - Stopping server...
+2020-02-05 07:02:31,523 [WARN] from akka.actor.CoordinatedShutdown in play-dev-mode-akka.actor.default-dispatcher-77 - CoordinatedShutdown from JVM shutdown failed: Future timed out after [30000 milliseconds]

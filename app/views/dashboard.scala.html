@@ -1,0 +1,49 @@
+
+@(posts: List[Post])
+@import helper._
+
+@adminLayout("Admin Dashboard"){
+	
+	<div class="container">
+		<div class="row" >
+			<h1>@posts.size() post(s)</h1>
+			<a href="posts/create"><button class="btn btn-primary btn-mini my-4" style="margin-left: 600px;" title="Add New Post">Add New</button></a>
+			<table class="table striped highlight responsive-table table-bordered" >
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Title</th>
+						<th>Description</th>
+						<th>Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					@for(post <- posts) {
+						<tr>
+							<td>@post.id</td>
+							<td>@post.title</td>
+							<td>@post.description</td>
+							<td>
+								@helper.form(routes.PostController.show(post.id)) {
+				                    <input type="submit" title="View Details" class="btn" value="View">
+				                }
+
+				                @helper.form(routes.PostController.edit(post.id)) {
+									<input type="submit" title="Edit Post" class="btn blue" value="Edit">
+								}
+								@helper.form(routes.PostController.destroy(post.id)) {
+								 	@helper.CSRF.formField
+				                    <input type="submit" title="Delete Post" id="delete-record" class="btn red" value="Delete">
+				                }
+							</td>
+						</tr>
+					}
+				</tbody>
+			</table>
+		</div>
+	</div>
+    
+	
+}
+
+

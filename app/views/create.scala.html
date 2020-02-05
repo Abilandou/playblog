@@ -1,0 +1,40 @@
+@(postForm : Form[Post])
+@import helper._
+
+@adminLayout("Add Post"){
+	<div class="container">
+		<div class="row" >
+			<div class="col s2">
+			</div>
+			<div class="col s8">
+				<div class="card" >
+					<div class="card-panel teal">
+						<h5 class="white-text center">ADD POST</h5>
+					</div>
+					@helper.form(action = routes.PostController.store(), Symbol("enctype") -> "multipart/form-data"){
+						@helper.CSRF.formField
+
+						<div class="card-content" >
+							<div class="input-field">
+								@helper.inputText(postForm("title"))
+							</div>
+
+							<div class="input-field">
+								@helper.textarea(postForm("description"))
+							</div>
+							<div>
+								<button style="margin-bottom: 30px;" type="submit" class="btn blue right">Post</button>
+							</div>
+						</div>
+
+					}
+				</div>
+			</div>
+			<div class="col s2">
+			</div>
+		</div>
+	</div>
+}
+
+
+	

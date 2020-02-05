@@ -1,0 +1,30 @@
+@(post: Post)
+
+<link rel="stylesheet" media="screen" href="@routes.Assets.versioned("materialize/css/materialize.min.css")">
+<script src="@routes.Assets.versioned("materialize/js/materialize.min.js")" crossorigin="anonymous"></script>
+<script src="@routes.Assets.versioned("javascripts/jquery-3.4.min.js")" crossorigin="anonymous"></script>
+<script src="@routes.Assets.versioned("javascripts/main.js")" crossorigin="anonymous"></script>
+
+
+
+
+@main("Single Post"){
+<div class="container">
+	<div class="row">
+		<div class="col s12 m7">
+			<div class="card">
+			    <div class="card-image"> 
+			       Image goes here
+			    </div>
+			    <div class="card-content">
+			    	<p>Detail Information For:<b class="bold teal-text"> @post.title</b></p>
+			        <p>@post.description</p>
+			    </div>
+			    <div class="card-action">
+			        <a href="/dashboard" class="right">BACK</a>
+			    </div>
+			</div>
+		</div>
+	</div>
+</div>
+}

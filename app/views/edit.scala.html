@@ -1,0 +1,41 @@
+@(postForm : Form[Post], post: Post)
+@import helper._
+
+@adminLayout("Update Post"){
+	
+	<div class="container">
+		<div class="row" >
+			<div class="col s2">
+			</div>
+			<div class="col s8">
+				<div class="card" >
+					<div class="card-panel">
+						<h3 class="teal-text center">Update Post</h3>
+					</div>
+					@helper.form(action = routes.PostController.update(post.id)){
+						@helper.CSRF.formField
+						<div class="card-content" >
+							<div class="input-field">
+								
+									<input type="text" value="@post.title" name="title"data-length="100" required="">
+								<label for="title" >Post Title:</label>
+							</div><br><br>
+
+							<div class="input-field">
+								
+									<textarea name="description" required="" data-length="300" >@post.description</textarea>
+								<label for="description" >Post Description:</label>
+							</div><br><br>
+							<div>
+								<button type="submit" class="btn blue right">Update</button>
+							</div>
+						</div>
+
+					}
+				</div>
+			</div>
+			<div class="col s2">
+			</div>
+		</div>
+	</div>
+}

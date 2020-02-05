@@ -1,0 +1,7 @@
+[0m[[0m[0mdebug[0m] [0m[0mCopy resource mappings: [0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/home/computer/Desktop/Play/blog/conf/application.conf,/home/computer/Desktop/Play/blog/target/scala-2.13/classes/application.conf)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/home/computer/Desktop/Play/blog/conf/routes,/home/computer/Desktop/Play/blog/target/scala-2.13/classes/routes)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/home/computer/Desktop/Play/blog/conf/logback.xml,/home/computer/Desktop/Play/blog/target/scala-2.13/classes/logback.xml)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/home/computer/Desktop/Play/blog/conf/evolutions/default/2.sql,/home/computer/Desktop/Play/blog/target/scala-2.13/classes/evolutions/default/2.sql)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/home/computer/Desktop/Play/blog/conf/evolutions/default/3.slq,/home/computer/Desktop/Play/blog/target/scala-2.13/classes/evolutions/default/3.slq)[0m
+[0m[[0m[0mdebug[0m] [0m[0m	(/home/computer/Desktop/Play/blog/conf/evolutions/default/1.sql,/home/computer/Desktop/Play/blog/target/scala-2.13/classes/evolutions/default/1.sql)[0m

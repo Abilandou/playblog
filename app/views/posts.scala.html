@@ -1,0 +1,35 @@
+
+@(posts: List[Post])
+
+@import helper._
+
+@layout("Posts"){
+
+<div class="container-fluid">
+	<div class="row">
+		@for(post <- posts) {
+		<div class="row col s3 card hoverable" id="posts"  style="margin-left:25px;" >
+            <div class="col-12">
+                <div class="col s4">
+                <div class="card-image waves-effect waves-block waves-light">
+			        		<a type="submit"><img width="100px" height="200px" src=" product" class="img-fluid my-4"></a>
+                </div>
+                </div>
+                <div class="col-sm-8">
+                     <h2 class="card-title mt-4 text-darken-4" style="margin-left:50px;">@post.title</h2>
+                    <div class="divider"></div>
+                    <div class="col-sm-8 mt-2">
+                        <p style="text-align:justify">@post.description</p>
+                        @helper.form(routes.PostController.singlePost((post.id))){
+			        		<button type="submit"  class="btn btn-danger white-text pull-right my-4">View Details</button>
+			        	}
+                    </div>
+                </div>
+            </div>
+        </div>
+		}
+	</div>
+</div>
+}
+
+

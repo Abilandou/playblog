@@ -1,0 +1,2 @@
+[0m[[0m[31merror[0m] [0m[0m/home/computer/Desktop/Play/blog/app/controllers/AuthController.java:83:1: incompatible types: play.mvc.Result cannot be converted to boolean[0m
+[0m[[0m[31merror[0m] [0m[0mthis.auth()[0m
